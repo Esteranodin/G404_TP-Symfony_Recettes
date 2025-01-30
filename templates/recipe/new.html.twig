@@ -1,0 +1,20 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Nouvelle recette
+{% endblock %}
+{% block stylesheets %}
+	<link rel="stylesheet" href="{{ asset('styles/form.css')}}">
+{% endblock %}
+{% block javascripts %}
+	{% block importmap %}
+		{{ importmap('app') }}
+	{% endblock %}
+{% endblock %}
+
+{% block body %}
+	<h1>Create new Recipe</h1>
+
+	{{ include('recipe/_form.html.twig') }}
+
+	<a href="{{ path('app_recipe_index') }}">back to list</a>
+{% endblock %}
