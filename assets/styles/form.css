@@ -1,7 +1,3 @@
-body {
-    background: #323232;
-}
-
 form {
     max-width: 600px;
     margin: 0 auto;
@@ -28,12 +24,11 @@ form .form-label {
     display: block;
     margin-bottom: 5px;
     font-weight: bold;
-    color: #c32323;
+    color: #333;
 }
 
-form .form-label input,
-form .form-label textarea,
-form .form-label select {
+form .form-label input {
+    background: #000;
     width: 100%;
     padding: 10px;
     border: 1px solid #881616;

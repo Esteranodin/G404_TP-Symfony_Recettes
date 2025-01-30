@@ -6,24 +6,27 @@
 {% block body %}
 	<h1>Toutes nos recettes</h1>
 
-	<section>
+	{# <h3> {{ category.name }}</h3> #}
+
+	<section class="card">
+
 		{% for recipe in recipes %}
+			<h2 class="card_content">{{ recipe.name }}</h2>
 
-
-			<h3 class="ft-recipe">{{ recipe.name }}</h3>
-
-            <img src="{{ assets'./img/'}}" alt="">
+			<img src="{{ asset('img/zganci.jpg') }}" alt="image du plat">
 
 			<p>{{ recipe.description }}</p>
 			{# <td>{{ recipe.createdAt ? recipe.createdAt|date('Y-m-d H:i:s') : '' }}</td> #}
 		</section>
 		<section>
-			<a href="{{ path('app_recipe_show', {'id': recipe.id}) }}"> Voir cette recette</a>
+			<a href="{{ path('app_recipe_show', {'id': recipe.id}) }}">
+				Voir cette recette</a>
 			<a href="{{ path('app_recipe_edit', {'id': recipe.id}) }}">Modifier cette recette</a>
 		</section>
 
 	{% endfor %}
 
-
-	<a href="{{ path('app_recipe_new') }}">Ajoutez votre recette</a>
+	<section>
+		<a href="{{ path('app_recipe_new') }}">Ajoutez votre recette</a>
+	</section>
 {% endblock %}
