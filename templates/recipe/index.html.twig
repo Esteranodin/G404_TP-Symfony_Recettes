@@ -1,32 +1,40 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Recipe index
-{% endblock %}
+{% block title %}Nos recettes{% endblock %}
 
 {% block body %}
-	<h1>Toutes nos recettes</h1>
+    <h1 class="page-title">Toutes nos recettes</h1>
 
-	{# <h3> {{ category.name }}</h3> #}
+    <div class="recipes-grid">
+        {% for recipe in recipes %}
+            <article class="recipe-card">
+                <div class="recipe-content">
+                    <h2 class="recipe-title">{{ recipe.name }}</h2>
+                    <p class="recipe-description">{{ recipe.description }}</p>
+                    
+                    <div class="recipe-actions">
+                        <a href="{{ path('app_recipe_show', {'id': recipe.id}) }}" class="btn-action btn-view">
+                            <i class="ion-eye"></i>
+                            <span>Voir</span>
+                        </a>
+                        <a href="{{ path('app_recipe_edit', {'id': recipe.id}) }}" class="btn-action btn-edit">
+                            <i class="ion-edit"></i>
+                            <span>Modifier</span>
+                        </a>
+                        <a href="{{ path('app_recipe_delete', {'id': recipe.id}) }}" class="btn-action btn-delete" 
+                           onclick="return confirm('Êtes-vous sûr de vouloir supprimer cette recette ?')">
+                            <i class="ion-trash-a"></i>
+                            <span>Supprimer</span>
+                        </a>
+                    </div>
+                </div>
+            </article>
+        {% endfor %}
+    </div>
 
-	<section class="card">
-
-		{% for recipe in recipes %}
-			<h2 class="card_content">{{ recipe.name }}</h2>
-
-			<img src="{{ asset('img/zganci.jpg') }}" alt="image du plat">
-
-			<p>{{ recipe.description }}</p>
-			{# <td>{{ recipe.createdAt ? recipe.createdAt|date('Y-m-d H:i:s') : '' }}</td> #}
-		</section>
-		<section>
-			<a href="{{ path('app_recipe_show', {'id': recipe.id}) }}">
-				Voir cette recette</a>
-			<a href="{{ path('app_recipe_edit', {'id': recipe.id}) }}">Modifier cette recette</a>
-		</section>
-
-	{% endfor %}
-
-	<section>
-		<a href="{{ path('app_recipe_new') }}">Ajoutez votre recette</a>
-	</section>
+    <div class="action-new">
+        <a href="{{ path('app_recipe_new') }}" class="btn-primary">
+            <i class="ion-plus-round"></i> Ajouter une recette
+        </a>
+    </div>
 {% endblock %}

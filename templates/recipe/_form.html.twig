@@ -1,11 +1,29 @@
-<section class = "form">
+<section class="form">
 
-{{ form_start(form) }}
+	{{ form_start(form, {'attr': {'class': 'recipe-form'}}) }}
 
-{{ form_widget(form) }}
+	<div class="form-group">
+		{{ form_label(form.name, 'Nom de la recette', {'label_attr': {'class': 'form-label'}}) }}
+		{{ form_widget(form.name, {'attr': {'class': 'form-input'}}) }}
+	</div>
 
-<button class="btn">{{ button_label|default('Envoyez') }}</button>
+	<div class="form-group">
+		{{ form_label(form.description, 'Description', {'label_attr': {'class': 'form-label'}}) }}
+		{{ form_widget(form.description, {'attr': {'class': 'form-input form-textarea'}}) }}
+	</div>
 
-{{ form_end(form) }}
+	<div class="form-group">
+		{{ form_label(form.category) }}
+		{{ form_widget(form.category) }}
+	</div>
+
+	<div class="form-actions">
+		<button type="submit" class="btn-submit">
+			<i class="ion-plus-circled"></i>
+			Ajouter
+		</button>
+	</div>
+
+	{{ form_end(form) }}
 
 </section>

@@ -2,7 +2,9 @@
 
 namespace App\Form;
 
+use App\Entity\Category;
 use App\Entity\Recipe;
+use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\FormBuilderInterface;
@@ -26,6 +28,17 @@ class RecipeType extends AbstractType
                 ],
 
                 'label' => 'Description : ',
+                'label_attr' => [
+                    'class' => 'form-label'
+                ]
+            ])
+            ->add('category', EntityType::class, [
+                'class' => Category::class,
+                'attr' => [
+                    'class' => 'form-label',
+                    'placeholder' => 'Choississez votre catégorie '
+                ],
+                'label' => 'Catégorie : ',
                 'label_attr' => [
                     'class' => 'form-label'
                 ]

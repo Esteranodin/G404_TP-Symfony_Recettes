@@ -1,7 +1,7 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Nouvelle recette
-{% endblock %}
+{% block title %}Votre recette{% endblock %}
+
 {% block stylesheets %}
 	<link rel="stylesheet" href="{{ asset('styles/form.css')}}">
 {% endblock %}
@@ -12,9 +12,16 @@
 {% endblock %}
 
 {% block body %}
-	<h1>Ajoutez une nouvelle recette</h1>
+    <div class="form-container">
+        <h1 class="form-title">Ajoutez une nouvelle recette</h1>
 
-	{{ include('recipe/_form.html.twig') }}
+        {{ include('recipe/_form.html.twig') }}
 
-	<a href="{{ path('app_recipe_index') }}">Revenir à toutes les recettes</a>
+        <div class="form-footer">
+            <a href="{{ path('app_recipe_index') }}" class="btn-back">
+                <i class="ion-arrow-left-c"></i> 
+                Revenir à toutes les recettes
+            </a>
+        </div>
+    </div>
 {% endblock %}

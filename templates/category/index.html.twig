@@ -1,0 +1,43 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Catégories
+{% endblock %}
+
+{% block body %}
+	<h1 class="page-title">Toutes les catégories</h1>
+
+	<div class="recipes-grid">
+		{% for category in categories %}
+			<article class="recipe-card">
+				<div class="recipe-content">
+					<h2 class="recipe-title">{{ category.name  }}</h2>
+					<div class="recipe-actions">
+						<a href="{{ path('app_category_show', {'id': category.id}) }}" class="btn-action btn-view">
+							<i class="ion-eye"></i>
+							<span>Voir</span>
+						</a>
+						<a href="{{ path('app_category_edit', {'id': category.id}) }}" class="btn-action btn-edit">
+							<i class="ion-edit"></i>
+							<span>Modifier</span>
+						</a>
+						<a href="{{ path('app_category_delete', {'id': category.id}) }}" class="btn-action btn-delete" onclick="return confirm('Êtes-vous sûr de vouloir supprimer cette recette ?')">
+							<i class="ion-trash-a"></i>
+							<span>Supprimer</span>
+						</a>
+					</div>
+				</div>
+			{% else %}
+				<tr>
+					<td colspan="3">no records found</td>
+				</tr>
+			{% endfor %}
+
+		</div>
+		<div class="action-new">
+			<a href="{{ path('app_category_new') }}" class="btn-primary">
+				<i class="ion-plus-round"></i>
+				Ajouter une recette
+			</a>
+		</div>
+
+	{% endblock %}
