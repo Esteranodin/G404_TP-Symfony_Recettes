@@ -3,27 +3,27 @@
 	{{ form_start(form, {'attr': {'class': 'recipe-form'}}) }}
 
 	<div class="form-group">
-		{{ form_label(form.name, 'Nom de la recette', {'label_attr': {'class': 'form-label'}}) }}
-		{{ form_widget(form.name, {'attr': {'class': 'form-input'}}) }}
-	</div>
+		<p>
+			{{ form_label(form.name, 'Nom de la recette', {'label_attr': {'class': 'form-label'}}) }}
+			{{ form_widget(form.name, {'attr': {'class': 'form-input'}}) }}
+		</p>
 
-	<div class="form-group">
-		{{ form_label(form.description, 'Description', {'label_attr': {'class': 'form-label'}}) }}
-		{{ form_widget(form.description, {'attr': {'class': 'form-input form-textarea'}}) }}
-	</div>
+		<p>
+			{{ form_label(form.description, 'Description', {'label_attr': {'class': 'form-label'}}) }}
+			{{ form_widget(form.description, {'attr': {'class': 'form-input form-textarea'}}) }}
+		</p>
+		<p>
+			{{ form_label(form.category, 'Catégorie', {'label_attr': {'class': 'form-label'}}) }}
+			{{ form_widget(form.category) }}
+		</p>
 
-	<div class="form-group">
-		{{ form_label(form.category) }}
-		{{ form_widget(form.category) }}
-	</div>
+		{{ form_end(form) }}
 
-	<div class="form-actions">
-		<button type="submit" class="btn-submit">
-			<i class="ion-plus-circled"></i>
-			Ajouter
-		</button>
+		<div class="form-actions">
+			<button type="submit" class="btn-submit">
+				{{ button_label|default('Ajouter') }}
+			</button>
+		</div>
 	</div>
-
-	{{ form_end(form) }}
 
 </section>

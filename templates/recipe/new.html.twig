@@ -2,17 +2,7 @@
 
 {% block title %}Votre recette{% endblock %}
 
-{% block stylesheets %}
-	<link rel="stylesheet" href="{{ asset('styles/form.css')}}">
-{% endblock %}
-{% block javascripts %}
-	{% block importmap %}
-		{{ importmap('app') }}
-	{% endblock %}
-{% endblock %}
-
 {% block body %}
-    <div class="form-container">
         <h1 class="form-title">Ajoutez une nouvelle recette</h1>
 
         {{ include('recipe/_form.html.twig') }}
@@ -23,5 +13,4 @@
                 Revenir à toutes les recettes
             </a>
         </div>
-    </div>
 {% endblock %}

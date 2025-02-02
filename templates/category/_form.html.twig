@@ -1,4 +1,19 @@
-{{ form_start(form) }}
-    {{ form_widget(form) }}
-    <button class="btn">{{ button_label|default('Save') }}</button>
-{{ form_end(form) }}
+<section class="form">
+
+	{{ form_start(form, {'attr': {'class': 'recipe-form'}}) }}
+
+	<div class="form-group">
+		{{ form_label(form.name, 'Nom de la catégorie', {'label_attr': {'class': 'form-label'}}) }}
+		{{ form_widget(form.name, {'attr': {'class': 'form-input'}}) }}
+	</div>
+
+	<div class="form-actions">
+		<button type="submit" class="btn-submit">
+			 {{ button_label|default('Ajouter') }}
+		</button>
+	</div>
+	{{ form_end(form) }}
+	
+
+
+</section>

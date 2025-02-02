@@ -1,23 +1,23 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Nos recettes{% endblock %}
+{% block title %}Toutes nos recettes{% endblock %}
 
 {% block body %}
     <h1 class="page-title">Toutes nos recettes</h1>
 
-    <div class="recipes-grid">
+    <div class="grid">
         {% for recipe in recipes %}
-            <article class="recipe-card">
-                <div class="recipe-content">
-                    <h2 class="recipe-title">{{ recipe.name }}</h2>
-                    <p class="recipe-description">{{ recipe.description }}</p>
+            <article class="card">
+                <div class="card-content">
+                    <h2 class="subtitle">{{ recipe.name }}</h2>
+                    <p class="description">{{ recipe.description }}</p>
                     
-                    <div class="recipe-actions">
-                        <a href="{{ path('app_recipe_show', {'id': recipe.id}) }}" class="btn-action btn-view">
+                    <div class="actions">
+                        <a href="{{ path('app_recipe_show', {'id': recipe.id}) }}" class="btn-action">
                             <i class="ion-eye"></i>
                             <span>Voir</span>
                         </a>
-                        <a href="{{ path('app_recipe_edit', {'id': recipe.id}) }}" class="btn-action btn-edit">
+                        <a href="{{ path('app_recipe_edit', {'id': recipe.id}) }}" class="btn-action">
                             <i class="ion-edit"></i>
                             <span>Modifier</span>
                         </a>
@@ -32,9 +32,9 @@
         {% endfor %}
     </div>
 
-    <div class="action-new">
-        <a href="{{ path('app_recipe_new') }}" class="btn-primary">
-            <i class="ion-plus-round"></i> Ajouter une recette
+    <div class="actions">
+        <a href="{{ path('app_recipe_new') }}" class="btn-add">
+     Ajouter une recette
         </a>
     </div>
 {% endblock %}

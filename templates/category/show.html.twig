@@ -5,36 +5,32 @@
 {% endblock %}
 
 {% block body %}
-<div class="recipe-detail">
-	<h1 class="recipe-detail-title">{{ category.name }}</h1>
+	<div class="card-container">
+		<h1 class="page-title">{{ category.name }}</h1>
 
-	<table class="table">
-		<tbody>
-			<tr>
-				<th>Id</th>
-				<td>{{ category.id }}</td>
-			</tr>
-			<tr>
-				<th>Name</th>
-				<td>{{ category.name }}</td>
-			</tr>
-			<tr>
-				<th>Recettes</th>
-				{% for recipe in category.getRecipes() %}
-					<td>{{ recipe.name }}</td>
-				{% endfor %}
-
-            </tr>
-        </tbody>
-    </table>
-
-    <a href="{{ path('app_category_index') }}">back to list</a>
-
-    <a href="{{ path('app_category_edit', {'id': category.id}) }}">edit</a>
-
-    {{ include('category/_delete_form.html.twig') }}
+			<div class="infos">
+				<div class="info-group">
+					<div>
+						<h2>Recettes de cette catégorie</h2>
+						<h3>
+							{% for recipe in category.getRecipes() %}
+								<p>{{ recipe.name }}</p>
+								{# lien vers la recette #}
+							{% endfor %}
+						</h3>
+					</div>
+				</div>
+			</div>
+	   <div class="actions">
+            <a href="{{ path('app_category_index') }}" class="btn-back">
+                <i class="ion-arrow-left-c"></i>Retourner à la liste des catégories
+            </a>
+            <a href="{{ path('app_category_edit', {'id': category.id}) }}" class="btn-action">
+                <i class="ion-edit"></i> Modifier
+            </a>
+        </div>
 
 
-    </div>
-{% endblock %}
-
+	</div>
+	</div>
+	{% endblock %}
