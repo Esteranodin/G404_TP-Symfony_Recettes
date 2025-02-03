@@ -17,14 +17,14 @@ class RecipeCrudController extends AbstractCrudController
     }
 
     
-    public function configureFields(string $pageName): iterable
-    {
-        return [
-            IdField::new('name'),
-            TextField::new('slug'),
-            TextEditorField::new('description'),
-            AssociationField::new ('category') -> autocomplete(),
-        ];
-    }
+    // public function configureFields(string $pageName): iterable
+    // {
+    //     return [
+    //         IdField::new('name'),
+    //         TextField::new('slug'),
+    //         TextEditorField::new('description'),
+    //         AssociationField::new ('category') -> autocomplete(),
+    //     ];
+    // }
     
 }

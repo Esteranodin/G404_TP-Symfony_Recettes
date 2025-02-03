@@ -1,20 +1,43 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Register{% endblock %}
+{% block title %}Inscription
+{% endblock %}
 
 {% block body %}
-    <h1>Register</h1>
+	<h1>Inscription</h1>
 
-    {{ form_errors(registrationForm) }}
+	<section class="form">
 
-    {{ form_start(registrationForm) }}
-        {{ form_row(registrationForm.email) }}
-        {{ form_row(registrationForm.pseudo) }}
-        {{ form_row(registrationForm.plainPassword, {
-            label: 'Password'
-        }) }}
-        {{ form_row(registrationForm.agreeTerms) }}
+		{{ form_errors(registrationForm) }}
 
-        <button type="submit" class="btn">Register</button>
-    {{ form_end(registrationForm) }}
+		{{ form_start(registrationForm,{'attr': {'class': 'recipe-form'}}) }}
+
+		<div class="form-group">
+			<p>
+				{{ form_label(registrationForm.email, 'Votre email', {'label_attr': {'class': 'form-label'}}) }}
+				{{ form_widget(registrationForm.email, {'attr': {'class': 'form-input'}}) }}
+			</p>
+			<p>
+				{{ form_label(registrationForm.pseudo, 'Entrez un pseudo', {'label_attr': {'class': 'form-label'}}) }}
+				{{ form_widget(registrationForm.pseudo, {'attr': {'class': 'form-input'}}) }}
+			</p>
+			<p>
+				{{ form_label(registrationForm.plainPassword, 'Entrez un mot de passe', {
+                     'label': 'Password',
+                    'label_attr': {'class': 'form-label'}}) }}
+				{{ form_widget(registrationForm.plainPassword, {'attr': {'class': 'form-input'}}) }}
+			</p>
+			<p>
+				{{ form_row(registrationForm.agreeTerms) }}
+			</p>
+
+			{{ form_end(registrationForm) }}
+
+			<div class="form-actions">
+				<button type="submit" class="btn-submit">
+					S'inscrire
+				</button>
+			</div>
+		</div>
+	</section>
 {% endblock %}

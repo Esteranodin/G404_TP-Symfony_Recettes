@@ -7,10 +7,11 @@
 {% block body %}
 	<div class="card-container">
 		<h1 class="page-title ">{{ recipe.name }}</h1>
+		<h2 class="btn-back">{{ recipe.category}}</h2>
 
 		<div class="infos">
 			<div class="info-group">
-				<i class="ion-document-text"></i>
+				<i class="ion-clipboard"></i>
 				<div>
 					<h3>Description</h3>
 					<p>{{ recipe.description }}</p>
@@ -18,7 +19,7 @@
 			</div>
 
 			<div class="info-group">
-				<i class="ion-calendar"></i>
+				<i class="ion-ios-calendar"></i>
 				<div>
 					<h3>Date de création</h3>
 					<p>{{ recipe.createdAt ? recipe.createdAt|date('d/m/Y à H:i') : '' }}</p>

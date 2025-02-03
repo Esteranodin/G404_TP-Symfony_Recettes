@@ -45,7 +45,7 @@ h3 {
     font-family: 'Playfair Display', serif;
     font-size: 2rem;
     color: var(--color-dark);
-    margin-bottom: 2rem;
+    margin-bottom: 1rem;
 }
 
 .subtitle {
@@ -80,8 +80,8 @@ h3 {
 }
 
 .nav-links a {
-    color: var(--color-dark);
     margin-left: 2rem;
+    color: var(--color-dark);
 }
 
 .nav-links a:hover {
@@ -168,6 +168,10 @@ h3 {
     cursor: pointer;
 }
 
+.btn-add:hover {
+    color: var(--color-primary);
+}
+
 .btn-action {
     color: var(--color-dark);
     display: flex;
@@ -177,7 +181,6 @@ h3 {
     border-radius: var(--radius);
     transition: 0.3s ease;
     border-color: var(--color-light);
-
 }
 
 .btn-action i {

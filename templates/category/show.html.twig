@@ -6,31 +6,31 @@
 
 {% block body %}
 	<div class="card-container">
-		<h1 class="page-title">{{ category.name }}</h1>
+		<h1 class="page-title">Toutes les recettes {{ category.name }}</h1>
 
-			<div class="infos">
-				<div class="info-group">
-					<div>
-						<h2>Recettes de cette catégorie</h2>
-						<h3>
-							{% for recipe in category.getRecipes() %}
-								<p>{{ recipe.name }}</p>
-								{# lien vers la recette #}
-							{% endfor %}
-						</h3>
-					</div>
+		<div class="infos">
+			<div class="info-group">
+				<div>			
+						{% for recipe in category.getRecipes() %}
+							<h3>{{ recipe.name }}</h3>
+								<a href="{{ path('app_recipe_show', {'id': recipe.id}) }}" class="btn-back">
+									<i class="ion-arrow-right-c"></i>Voir la recette</a>
+							
+							{# lien vers la recette #}
+						{% endfor %}
 				</div>
 			</div>
-	   <div class="actions">
-            <a href="{{ path('app_category_index') }}" class="btn-back">
-                <i class="ion-arrow-left-c"></i>Retourner à la liste des catégories
-            </a>
-            <a href="{{ path('app_category_edit', {'id': category.id}) }}" class="btn-action">
-                <i class="ion-edit"></i> Modifier
-            </a>
-        </div>
+		</div>
+		<div class="actions">
+			<a href="{{ path('app_category_index') }}" class="btn-back">
+				<i class="ion-arrow-left-c"></i>Retourner à la liste des catégories
+			</a>
+			<a href="{{ path('app_category_edit', {'id': category.id}) }}" class="btn-action">
+				<i class="ion-edit"></i>
+				Modifier
+			</a>
+		</div>
 
 
 	</div>
-	</div>
-	{% endblock %}
+</div>{% endblock %}

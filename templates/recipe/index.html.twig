@@ -10,6 +10,7 @@
             <article class="card">
                 <div class="card-content">
                     <h2 class="subtitle">{{ recipe.name }}</h2>
+                    <h3 class="btn-back"><i class="ion-fork"></i>{{ recipe.category}}</h3>
                     <p class="description">{{ recipe.description }}</p>
                     
                     <div class="actions">
@@ -33,8 +34,7 @@
     </div>
 
     <div class="actions">
-        <a href="{{ path('app_recipe_new') }}" class="btn-add">
-     Ajouter une recette
-        </a>
+        <a href="{{ path('app_category_index') }}" class="btn-action">Voir toutes les catégories</a>
+        <a href="{{ path('app_recipe_new') }}" class="btn-add"> Ajouter une recette</a>
     </div>
 {% endblock %}
