@@ -33,13 +33,19 @@
 					<p>{{ recipe.slug }}</p>
 				</div>
 			</div>
+				<div>
+					<h3>Auteur / Autrice de cette recette</h3>
+					<p>{{ recipe.author }}</p>
+				</div>
 		</div>
 
 		<div class="actions">
+		 {% if recipe.author is same as(app.user) %}
 			<a href="{{ path('app_recipe_edit', {'id': recipe.id}) }}" class="btn-action">
 				<i class="ion-edit"></i>
 				Modifier
 			</a>
+			 {% endif %}
 			<a href="{{ path('app_recipe_index') }}" class="btn-back">
 				<i class="ion-arrow-left-c"></i>
 				Retour

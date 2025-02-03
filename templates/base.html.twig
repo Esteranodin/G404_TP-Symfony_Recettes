@@ -1,26 +1,39 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <meta charset="UTF-8">
-        <title>{% block title %}Welcome!{% endblock %}</title>
-        <link href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css" rel="stylesheet">
-        <link rel="preconnect" href="https://fonts.googleapis.com">
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
-        <link rel="stylesheet" href="{{ asset('styles/main.css') }}">
-        {% block stylesheets %}{% endblock %}
-        {% block javascripts %}
-            {% block importmap %}{{ importmap('app') }}{% endblock %}
-        {% endblock %}
-    </head>
-<body>
+	<head>
+		<meta charset="UTF-8">
+		<title>
+			{% block title %}Welcome!
+			{% endblock %}
+		</title>
+		<link href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css" rel="stylesheet">
+		<link rel="preconnect" href="https://fonts.googleapis.com">
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+		<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+		<link rel="stylesheet" href="{{ asset('styles/main.css') }}"> {% block stylesheets %}{% endblock %}
+		{% block javascripts %}
+			{% block importmap %}
+				{{ importmap('app') }}
+			{% endblock %}
+		{% endblock %}
+	</head>
+	<body>
 		<nav class="main-nav">
-			<a href="{{ path('app_recipe_index') }}"><p class="nav-brand">Yummmm ! &nbsp<i class="ion-ios-home"></i></p></a>
+			<a href="{{ path('app_recipe_index') }}">
+				<p class="nav-brand">Yummmm ! &nbsp<i class="ion-ios-home"></i>
+				</p>
+			</a>
 
 			<div class="nav-links">
-                  <a href="{{ path('app_category_index') }}">Catégories</a>
-                 <a href="{{ path('app_recipe_new') }}">Ajouter une recette</a>
-				<a href="{{ path('app_login') }}" class="btn-add">Connexion</a>
+				<a href="{{ path('app_category_index') }}">Catégories</a>
+				<a href="{{ path('app_recipe_new') }}">Ajouter une recette</a>
+
+				{% if app.user %}
+					<a href="{{ path('app_logout') }}" class="btn-add">Deconnexion</a>
+				{% else %}
+					<a href="{{ path('app_login') }}" class="btn-add">Connexion</a>
+
+				{% endif %}
 			</div>
 		</nav>
 		<main class="container"> {% block body %}{% endblock %}
@@ -29,4 +42,4 @@
 				<p>&copy; 2025 Yummmm ! Les meilleures recettes sont ici !</p>
 			</footer>
 		</body>
-</html>
+	</html>

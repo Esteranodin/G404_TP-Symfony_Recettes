@@ -30,6 +30,7 @@ final class RecipeController extends AbstractController
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
+            $recipe->setAuthor($this->getUser());
             $entityManager->persist($recipe);
             $entityManager->flush();
 
@@ -50,9 +51,19 @@ final class RecipeController extends AbstractController
         ]);
     }
 
+    
     #[Route('recipe/{id}/edit', name: 'app_recipe_edit', methods: ['GET', 'POST'])]
     public function edit(Request $request, Recipe $recipe, EntityManagerInterface $entityManager): Response
     {
+        if(!$this->getUser())
+        {
+            return $this->redirectToRoute('app_login');
+        }
+        
+        if($recipe->getAuthor() !== $this->getUser()){
+            return $this->redirectToRoute('app_recipe_index');
+        }
+
         $form = $this->createForm(RecipeType::class, $recipe);
         $form->handleRequest($request);
 
