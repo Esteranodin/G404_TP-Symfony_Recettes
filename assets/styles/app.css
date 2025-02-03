@@ -5,6 +5,7 @@
     --color-dark: #2D3436;
     --color-light: #f5e6e6;
     --color-gray: #8a9394;
+    --color-white: #fff2f2;
     --radius: 6px;
     --shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
@@ -64,7 +65,7 @@ h3 {
 
 /* ---------- Nav barre ----------*/
 .main-nav {
-    background: white;
+    background: var(--color-white);
     padding: 1rem 2rem;
     box-shadow: var(--shadow);
     display: flex;
@@ -90,7 +91,7 @@ h3 {
 
 /* ---------- Cards ----------*/
 .card {
-    background: var(--color-light);
+    background: var(--color-white);
     border-radius: var(--radius);
     overflow: hidden;
     box-shadow: var(--shadow);
@@ -160,7 +161,7 @@ h3 {
 /* ---------- Boutons ----------*/
 .btn-add {
     background: var(--color-primary);
-    color: white;
+    color: var(--color-white);
     padding: 0.5rem 1rem;
     border-radius: 8px;
     transition: 0.3s ease;
@@ -186,12 +187,12 @@ h3 {
 
 .btn-action:hover {
     background: var(--color-secondary);
-    color: white;
+    color: var(--color-white);
 }
 
 .btn-delete:hover {
     background: var(--color-tertiary);
-    color: white;
+    color: var(--color-white);
 }
 
 .btn-submit {
@@ -243,7 +244,7 @@ h3 {
     max-width: 600px;
     margin: 2rem auto;
     padding: 2rem;
-    background: white;
+    background: var(--color-white);
     border-radius: var(--radius);
     box-shadow: var(--shadow);
 }
@@ -277,7 +278,7 @@ h3 {
 .footer {
     text-align: center;
     padding: 2rem;
-    background: white;
+    background: var(--color-white);
     margin-top: 4rem;
     color: var(--color-gray);
 }
