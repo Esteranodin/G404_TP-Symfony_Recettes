@@ -2,6 +2,7 @@
 
 {% block title %}Toutes nos recettes{% endblock %}
 
+
 {% block body %}
     <h1 class="page-title">Toutes nos recettes</h1>
 
@@ -24,11 +25,11 @@
                             <i class="ion-edit"></i>
                             <span>Modifier</span>
                         </a>
-                        <a href="{{ path('app_recipe_delete', {'id': recipe.id}) }}" class="btn-action btn-delete" 
+                        {# <a href="{{ path('app_recipe_delete', {'id': recipe.id}) }}" class="btn-action btn-delete" 
                            onclick="return confirm('Êtes-vous sûr de vouloir supprimer cette recette ?')">
                             <i class="ion-trash-a"></i>
                             <span>Supprimer</span>
-                        </a>
+                        </a> #}
                         {% endif %}
 
 

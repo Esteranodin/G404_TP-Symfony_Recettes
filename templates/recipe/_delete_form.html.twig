@@ -3,7 +3,9 @@
       class="delete-form">
     <input type="hidden" name="_token" value="{{ csrf_token('delete' ~ recipe.id) }}">
     <button class="btn-action btn-delete">
+    
         <i class="ion-trash-a"></i>
+
         <span>Supprimer</span>
     </button>
 </form>

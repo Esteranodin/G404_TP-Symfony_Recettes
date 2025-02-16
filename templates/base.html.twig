@@ -17,6 +17,7 @@
 			{% endblock %}
 		{% endblock %}
 	</head>
+
 	<body>
 		<nav class="main-nav">
 			<a href="{{ path('app_recipe_index') }}">
@@ -36,6 +37,13 @@
 				{% endif %}
 			</div>
 		</nav>
+
+		{% block flashes %}
+			{% for message in app.flashes('success') %}
+			<div class="flashes">{{ message }}</div>	
+			{% endfor %}
+		{% endblock %}
+
 		<main class="container"> {% block body %}{% endblock %}
 			</main>
 			<footer class="footer">
