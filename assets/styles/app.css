@@ -79,6 +79,11 @@ h3 {
     color: var(--color-primary);
 }
 
+.nav-links {
+    display: flex;
+    align-items: center;
+}
+
 .nav-links a {
     margin-left: 2rem;
     color: var(--color-dark);
@@ -166,6 +171,9 @@ h3 {
     border-radius: 8px;
     transition: 0.3s ease;
     cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .btn-add:hover {
@@ -181,6 +189,8 @@ h3 {
     border-radius: var(--radius);
     transition: 0.3s ease;
     border-color: var(--color-light);
+    justify-content: center;
+    text-align: center;
 }
 
 .btn-action i {
@@ -208,6 +218,9 @@ h3 {
     font-weight: 600;
     cursor: pointer;
     box-shadow: var(--shadow);
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .btn-submit:hover {
@@ -223,6 +236,8 @@ h3 {
     padding: 0.5rem 1rem;
     border-radius: var(--radius);
     transition: all 0.3s ease;
+    justify-content: center;
+    align-items: center;
 }
 
 .btn-back:hover {
@@ -301,9 +316,16 @@ h3 {
     }
 
     .nav-links {
-        display: none;
+        display: flex;
+        flex-direction: row; 
+        gap: 1rem; 
+        flex-wrap: wrap; 
     }
 
+    .nav-links a {
+        margin-left: 0; 
+    }
+    
     .grid {
         grid-template-columns: 1fr;
     }
@@ -327,6 +349,7 @@ h3 {
     .btn-action {
         width: 33%;
     }
+
 
 
 }
